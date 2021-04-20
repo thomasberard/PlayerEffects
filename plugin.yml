@@ -1,0 +1,37 @@
+name: PlayerEffects
+main: fr.mrflamme26.playereffects.Main
+version: 1.0
+api-version: 1.16
+description: Plugin pour gerer les particules des joueurs
+author: MrFlamme26
+
+commands:
+  trails:
+  
+permissions:
+  playereffects.*:
+    description: Donner toutes les permissions de PlayerEffects
+    children:
+      playereffects.item: true
+      playereffects.effect.totem: true
+      playereffects.effect.flammes: true
+      playereffects.effect.coeurs: true
+  -playereffects.*:
+    description: Interdire toutes les permissions de PlayerEffects
+    children:
+      playereffects.item: false
+      playereffects.effect.totem: false
+      playereffects.effect.flammes: false
+      playereffects.effect.coeurs: false
+  playereffects.item:
+    description: Autoriser l'utilisation des effets de particules
+    default: true
+  playereffects.effect.totem:
+    description: Autoriser l'utilisation de l'effet toto
+    default: true
+  playereffects.effect.flammes:
+    description: Autoriser l'utilisation de l'effet toto
+    default: op
+  playereffects.effect.coeurs:
+    description: Autoriser l'utilisation de l'effet toto
+    default: op
