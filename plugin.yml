@@ -14,24 +14,14 @@ permissions:
     children:
       playereffects.item: true
       playereffects.effect.totem: true
-      playereffects.effect.flammes: true
-      playereffects.effect.coeurs: true
   -playereffects.*:
     description: Interdire toutes les permissions de PlayerEffects
     children:
       playereffects.item: false
       playereffects.effect.totem: false
-      playereffects.effect.flammes: false
-      playereffects.effect.coeurs: false
   playereffects.item:
     description: Autoriser l'utilisation des effets de particules
-    default: true
-  playereffects.effect.totem:
-    description: Autoriser l'utilisation de l'effet toto
-    default: true
-  playereffects.effect.flammes:
-    description: Autoriser l'utilisation de l'effet toto
     default: op
-  playereffects.effect.coeurs:
+  playereffects.effect.totem:
     description: Autoriser l'utilisation de l'effet toto
     default: op

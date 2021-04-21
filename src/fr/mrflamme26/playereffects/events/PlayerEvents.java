@@ -3,7 +3,6 @@ package fr.mrflamme26.playereffects.events;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.Sound;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -53,19 +52,14 @@ public class PlayerEvents implements Listener {
 		
 		if (player.getInventory().getItemInMainHand().equals(item())) {
 			if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK ) {
-				if (player.hasPermission("playereffects.item") || player.isOp()) {
-					player.playSound(player.getLocation(), Sound.ENTITY_SLIME_JUMP, 5, 1);
-					Bukkit.getServer().dispatchCommand(player, "trails");
-				}
-				else
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&',"&cVous n'avez pas la permission d'utiliser cet item."));
+				Bukkit.getServer().dispatchCommand(player, "trails");
 			}
 		}
 	}
 	
 	public ItemStack item() {
 
-		ItemStack item = new ItemStack(Material.BLAZE_ROD);
+		ItemStack item = new ItemStack(Material.ENDER_CHEST);
 		ItemMeta meta = item.getItemMeta();
 		
 		meta.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&eMenu des particules"));
