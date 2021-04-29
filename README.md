@@ -1,4 +1,6 @@
-# PlayerEffects > [![Support Server](https://img.shields.io/discord/835137597692837889.svg?label=Discord&logo=Discord&colorB=7289da&style=for-the-badge)](https://discord.gg/J74UR2VtcH)
+[![Support Server](https://img.shields.io/discord/835137597692837889.svg?label=Discord&logo=Discord&colorB=7289da&style=for-the-badge)](https://discord.gg/J74UR2VtcH)
+
+# PlayerEffects
 
 Plugin Minecraft : Permet d'avoir des effets de particules.
 
