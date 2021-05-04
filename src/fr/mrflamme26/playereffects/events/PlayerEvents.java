@@ -59,7 +59,7 @@ public class PlayerEvents implements Listener {
 	
 	public ItemStack item() {
 
-		ItemStack item = new ItemStack(Material.ENDER_CHEST);
+		ItemStack item = new ItemStack(Material.NETHER_STAR);
 		ItemMeta meta = item.getItemMeta();
 		
 		meta.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&eMenu des particules"));

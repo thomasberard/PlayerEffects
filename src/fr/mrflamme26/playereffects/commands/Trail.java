@@ -21,7 +21,7 @@ public class Trail implements CommandExecutor {
 			}
 			else if((sender.hasPermission("playereffects.item") || sender.isOp())) {
 				Player player = (Player) sender;
-				player.playSound(player.getLocation(), Sound.BLOCK_ENDER_CHEST_OPEN, 5, 0);
+				player.playSound(player.getLocation(), Sound.ENTITY_ITEM_PICKUP, 5, 0);
 				GUI menu = new GUI();
 				menu.openInventoryAnimations(player);
 				
