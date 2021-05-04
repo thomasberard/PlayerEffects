@@ -1,24 +1,27 @@
 package fr.mrflamme26.playereffects.models;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Color;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import fr.mrflamme26.playereffects.Main;
 
-public class Effects {
+public class CrossEffects {
 	
 	private int taskID;
 	private final Player player;
 	
-	public Effects(Player player) {
+	public CrossEffects(Player player) {
 		this.player = player;
 	}
 	
-	public void startTotem() {
-		player.getWorld().playSound(player.getLocation(), Sound.ITEM_TOTEM_USE, 5, 1);
+	public void startCrossEffect(Particle particleEffect) {
+		player.playSound(player.getLocation(), Sound.ENTITY_ITEM_PICKUP, 5, 0);
 		taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
 			
 			double var = 0;
@@ -35,17 +38,17 @@ public class Effects {
 				
 				loc = player.getLocation();
 				first = loc.clone().add(Math.cos(var), Math.sin(var) + 1.5, Math.sin(var));
-				second= loc.clone().add(Math.cos(var + Math.PI), Math.sin(var) + 1.5, Math.sin(var + Math.PI));
+				second = loc.clone().add(Math.cos(var + Math.PI), Math.sin(var) + 1.5, Math.sin(var + Math.PI));
 				
-				player.getWorld().spawnParticle(Particle.TOTEM, first, 0);
-				player.getWorld().spawnParticle(Particle.TOTEM, second, 0);
+				player.getWorld().spawnParticle(particleEffect, first, 0);
+				player.getWorld().spawnParticle(particleEffect, second, 0);
 			}
 			
 		}, 0, 1);
 	}
 	
-	public void startFlammes() {
-		player.getWorld().playSound(player.getLocation(), Sound.BLOCK_FIRE_EXTINGUISH, 5, 1);
+	public void startCrossEffectRedstone() {
+		player.playSound(player.getLocation(), Sound.ENTITY_ITEM_PICKUP, 5, 0);
 		taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
 			
 			double var = 0;
@@ -62,17 +65,20 @@ public class Effects {
 				
 				loc = player.getLocation();
 				first = loc.clone().add(Math.cos(var), Math.sin(var) + 1.5, Math.sin(var));
-				second= loc.clone().add(Math.cos(var + Math.PI), Math.sin(var) + 1.5, Math.sin(var + Math.PI));
+				second = loc.clone().add(Math.cos(var + Math.PI), Math.sin(var) + 1.5, Math.sin(var + Math.PI));
 				
-				player.getWorld().spawnParticle(Particle.FLAME, first, 0);
-				player.getWorld().spawnParticle(Particle.FLAME, second, 0);
+				Particle.DustOptions dust = new Particle.DustOptions(
+                        Color.fromRGB((int) 255, (int) 0, (int) 0), 1);
+				
+				player.getWorld().spawnParticle(Particle.REDSTONE, first, 0, 0, 0, 0, 0, dust);
+				player.getWorld().spawnParticle(Particle.REDSTONE, second, 0, 0, 0, 0, 0, dust);
 			}
 			
 		}, 0, 1);
 	}
 	
-	public void startCoeurs() {
-		player.getWorld().playSound(player.getLocation(), Sound.BLOCK_FIRE_EXTINGUISH, 5, 1);
+	public void startCrossEffectItemCrack(Particle particleEffect, Material materialEffect) {
+		player.playSound(player.getLocation(), Sound.ENTITY_ITEM_PICKUP, 5, 0);
 		taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(Main.class), new Runnable() {
 			
 			double var = 0;
@@ -89,10 +95,12 @@ public class Effects {
 				
 				loc = player.getLocation();
 				first = loc.clone().add(Math.cos(var), Math.sin(var) + 1.5, Math.sin(var));
-				second= loc.clone().add(Math.cos(var + Math.PI), Math.sin(var) + 1.5, Math.sin(var + Math.PI));
+				second = loc.clone().add(Math.cos(var + Math.PI), Math.sin(var) + 1.5, Math.sin(var + Math.PI));
 				
-				player.getWorld().spawnParticle(Particle.HEART, first, 0);
-				player.getWorld().spawnParticle(Particle.HEART, second, 0);
+				ItemStack cookie = new ItemStack(materialEffect);
+				
+				player.getWorld().spawnParticle(particleEffect, first, 0, 0, 0, 0, 0, cookie);
+				player.getWorld().spawnParticle(particleEffect, second, 0, 0, 0, 0, 0, cookie);
 			}
 			
 		}, 0, 1);
